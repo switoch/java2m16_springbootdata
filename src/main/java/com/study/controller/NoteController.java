@@ -59,8 +59,6 @@ public class NoteController {
 
     @PostMapping(value = "/note/edit")
     public ModelAndView editNoteById(@NotNull @RequestParam(value = "id") Long noteId, String content, HttpServletResponse httpServletResponse) throws Exception {
-//        ModelAndView result = new ModelAndView("note/edit");
-//        result.setStatus(HttpStatusCode.valueOf(302));
         httpServletResponse.setStatus(302);
         noteService.update(noteId, content);
         return new ModelAndView("redirect:list");
